@@ -82,9 +82,9 @@ Los regalos se representan mediante matrices de `String`, usando caracteres como
 Ejemplo de regalo:
 
 ```
-▓▓▓▓▓▓▓
-▓  ▓  ▓
-▓▓▓▓▓▓▓
+▓▓▓ ▓▓▓
+   
+▓▓▓ ▓▓▓
 ```
 
 El programa calcula el **ancho visual real** (sin contar los códigos ANSI) para que los regalos queden centrados correctamente respecto al árbol.
