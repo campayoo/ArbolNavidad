@@ -2,6 +2,9 @@
 
 Este proyecto consiste en un programa en **Java** que dibuja un **árbol de Navidad en la consola**, utilizando caracteres ASCII y **colores ANSI** para darle un aspecto vistoso y festivo. El árbol incluye **decoración de colores**, una **estrella en la parte superior**, un **tronco** y **regalos centrados debajo del árbol**.
 
+<img width="1171" height="795" alt="image" src="https://github.com/user-attachments/assets/3b7bf124-eb83-4db2-b9cc-cf57d90e15ce" />
+
+
 ---
 
 ## 📌 Características principales
