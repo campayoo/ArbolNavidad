@@ -43,7 +43,7 @@ public class Arbol {
     // Dibuja la estrella calculando los espacios.
     public static void dibujarEstrella(int anchoMax) {
         int espaciosEstrella = (anchoMax - 1) / 2 + 50;
-        System.out.println(" ".repeat(espaciosEstrella) + Colores.AMARILLO + "*" + Colores.AMARILLO); // muestra la estrella en amarillo fosforito para que resalte.
+        System.out.println(" ".repeat(espaciosEstrella) + Colores.AMARILLO + "✮" + Colores.AMARILLO); // muestra la estrella en amarillo fosforito para que resalte.
     }
 
     // Muestra el árbol de forma centrada.
@@ -68,10 +68,15 @@ public class Arbol {
 
                 for (int i = 0; i < estrellas; i++) {
 
-                    if (decoracion && Math.random() < 0.2) { // aquí se establece la probabilidad de que sea luz o hoja de árbol (25% de ser luz).
-                        linea.append(Colores.colorRandom()).append("O").append(Colores.RESET); // escoge color ALEATORIO y lo muestra con O para hacer de bolas de colores.
+                    if (decoracion && Math.random() < 0.25 && i!=estrellas-1 && i!=0) { // aquí se establece la probabilidad de que sea luz o hoja de árbol (25% de ser luz).
+                        linea.append(Colores.colorRandom()).append("●").append(Colores.RESET); // escoge color ALEATORIO y lo muestra con O para hacer de bolas de colores.
                     } else {
-                        linea.append(Colores.VERDE).append("*").append(Colores.RESET); // si no hay decoración simplemente muestra la hoja con el color verde del árbol.
+                        if (i == 0)
+                            linea.append(Colores.VERDE).append("◢").append(Colores.RESET); // si no hay decoración simplemente muestra la hoja con el color verde del árbol.
+                        else if (i == estrellas-1)
+                            linea.append(Colores.VERDE).append("◣").append(Colores.RESET); // si no hay decoración simplemente muestra la hoja con el color verde del árbol.
+                        else
+                            linea.append(Colores.VERDE).append("■").append(Colores.RESET); // si no hay decoración simplemente muestra la hoja con el color verde del árbol.
                     }
                 }
 
@@ -95,7 +100,7 @@ public class Arbol {
         int espacios = (anchoMax - troncoAncho) / 2 + 50;
 
         for (int i = 0; i < troncoAltura; i++) {
-            System.out.println(" ".repeat(espacios) + Colores.MARRON + "*".repeat(troncoAncho)); // muestra siempre el tronco en color marrón y utiliza los espacios para centrarlo.
+            System.out.println(" ".repeat(espacios) + Colores.MARRON + "█".repeat(troncoAncho)); // muestra siempre el tronco en color marrón y utiliza los espacios para centrarlo.
         }
     }
 
