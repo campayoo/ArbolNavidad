@@ -1,9 +1,11 @@
 # 🎄 Árbol de Navidad en Java
 
-Este proyecto consiste en un programa en **Java** que dibuja un **árbol de Navidad en la consola**, utilizando caracteres ASCII y **colores ANSI** para darle un aspecto vistoso y festivo. El árbol incluye **decoración de colores**, una **estrella en la parte superior**, un **tronco** y **regalos centrados debajo del árbol**.
+Este proyecto consiste en un **programa en Java** que dibuja un **árbol de Navidad en la consola**, utilizando **caracteres ASCII/Unicode** y **colores ANSI** para darle un aspecto vistoso y festivo. El árbol es **interactivo** y permite al usuario configurar varios aspectos antes de dibujarlo.
+
+Incluye **decoración de colores aleatorios**, una **estrella en la parte superior**, un **tronco opcional**, **regalos centrados debajo del árbol** y un **suelo decorativo**.
 
 <div align="center">
-  <img 
+  <img
     src="https://github.com/user-attachments/assets/737c38ea-c264-4cb3-99ea-05484bf5c1e2"
     width="500"
     alt="Árbol de Navidad en consola Java"
@@ -14,21 +16,22 @@ Este proyecto consiste en un programa en **Java** que dibuja un **árbol de Navi
 
 ## 📌 Características principales
 
-- 🌲 Árbol de Navidad generado por consola.
-- 🎨 Uso de **colores ANSI** (rojo, amarillo, verde, colores fosforitos, etc.).
-- ⭐ Estrella en la punta del árbol.
-- 🎁 Regalos dibujados y **centrados automáticamente** bajo el árbol.
-- 📐 Ajuste dinámico del ancho del árbol.
-- 💻 Compatible con terminales que soporten colores ANSI.
+* 🌲 Árbol generado dinámicamente por **ramas/pisos**.
+* 🎨 Decoración opcional con **luces de colores aleatorios**.
+* ⭐ Estrella fosforita en la parte superior del árbol.
+* 🪵 Tronco opcional, centrado automáticamente.
+* 🎁 Regalos dibujados con ASCII y **alineados correctamente** bajo el árbol.
+* 📐 Cálculo automático del ancho máximo para un **centrado perfecto**.
+* 💻 Compatible con terminales que soporten **códigos ANSI**.
 
 ---
 
 ## 🛠️ Tecnologías usadas
 
-- **Lenguaje:** Java  
-- **Entrada de datos:** `Scanner`  
-- **Salida:** Consola  
-- **Estilo visual:** ASCII Art + Códigos ANSI  
+* **Lenguaje:** Java
+* **Entrada de datos:** `Scanner`
+* **Salida:** Consola
+* **Estilo visual:** ASCII Art + Unicode + Códigos ANSI
 
 ---
 
@@ -45,13 +48,25 @@ README.md
 Archivo principal del programa. Contiene:
 
 * El método `main()`.
-* La lógica para dibujar el árbol.
-* El tronco.
-* Los regalos bajo el árbol.
+* La lógica para generar el árbol por pisos.
+* La estrella superior.
+* El tronco opcional.
+* Los regalos centrados bajo el árbol.
+* El suelo decorativo.
+
+El programa solicita al usuario:
+
+* Número de ramas del árbol.
+* Si desea mostrar el tronco.
+* Si desea añadir decoración.
+
+---
 
 ### 🎨 Colores.java
 
-Clase auxiliar que define los **códigos ANSI** usados para colorear el árbol, por ejemplo:
+Clase auxiliar que define los **códigos ANSI** utilizados para colorear el árbol y los regalos.
+
+Ejemplo:
 
 ```java
 public static final String ROJO = "\u001B[31m";
@@ -60,46 +75,40 @@ public static final String AMARILLO = "\u001B[33m";
 public static final String RESET = "\u001B[0m";
 ```
 
-Esto permite cambiar fácilmente los colores sin modificar la lógica del programa.
+También incluye un método para devolver **colores aleatorios** usados en la decoración.
 
 ---
 
 ## 🌲 Funcionamiento del programa
 
-1. Se inicializa el ancho del árbol.
-2. Se dibuja la estrella superior.
-3. Se van generando las filas del árbol aumentando progresivamente su anchura.
-4. Cada fila puede incluir colores aleatorios o definidos.
-5. Se dibuja el tronco centrado.
-6. Finalmente, se dibujan los regalos **alineados y centrados** debajo del árbol.
+1. El usuario introduce las opciones iniciales (ramas, tronco y decoración).
+2. Se calcula la altura total del árbol por pisos.
+3. Se genera el árbol línea a línea aumentando su anchura progresivamente.
+4. Se añade decoración aleatoria con una probabilidad del 25%.
+5. Se dibuja la estrella centrada en la parte superior.
+6. Se muestra el árbol completo.
+7. Si se ha activado, se dibuja el tronco y los regalos.
+8. Finalmente, se dibuja el suelo.
 
 ---
 
 ## 🎁 Regalos
 
-Los regalos se representan mediante matrices de `String`, usando caracteres como `▓` y colores ANSI.
+Los regalos se representan mediante **matrices de `String`**, usando caracteres como `▓` y distintos colores ANSI.
 
-Ejemplo de regalo:
-
-```
-▓▓▓ ▓▓▓
-   
-▓▓▓ ▓▓▓
-```
-
-El programa calcula el **ancho visual real** (sin contar los códigos ANSI) para que los regalos queden centrados correctamente respecto al árbol.
+Cada regalo tiene forma simétrica y se colocan calculando su **ancho visual real** para que queden perfectamente centrados bajo el árbol.
 
 ---
 
 ## 📏 Centrado correcto (detalle técnico)
 
-Para centrar correctamente textos con colores ANSI, se eliminan los códigos de color antes de calcular la longitud visual:
+Para evitar errores de alineación causados por los códigos ANSI, el programa elimina dichos códigos antes de calcular la longitud visible de cada línea:
 
 ```java
 int visualLength = linea.replaceAll("\u001B\\[[;\\d]*m", "").length();
 ```
 
-Esto evita errores de alineación en la consola.
+Esto garantiza un centrado preciso tanto del árbol como de los regalos.
 
 ---
 
@@ -128,13 +137,17 @@ java Arbol
 ## ⚠️ Requisitos
 
 * Java 8 o superior.
-* Consola compatible con códigos ANSI (Windows Terminal, CMD moderno, Linux, macOS).
+* Terminal compatible con códigos ANSI:
+
+  * Windows Terminal / CMD moderno
+  * Linux
+  * macOS
 
 ---
 
 ## 🎄 Resultado final
 
-Al ejecutarlo, el programa mostrará un **árbol de Navidad colorido**, con decoración llamativa y regalos perfectamente centrados, ideal como ejercicio de Java o detalle festivo.
+Al ejecutarlo, el programa mostrará un **árbol de Navidad colorido**, configurable e interactivo, con decoración llamativa y regalos perfectamente centrados. Ideal como proyecto de práctica en Java o detalle festivo.
 
 ---
 
@@ -142,11 +155,10 @@ Al ejecutarlo, el programa mostrará un **árbol de Navidad colorido**, con deco
 
 * Animaciones.
 * Luces intermitentes.
-* Elección de altura del árbol por el usuario.
-* Exportar a archivo de texto.
+* Música navideña.
+* Exportar el resultado a un archivo `.txt`.
+* Más tipos de decoración.
 
 ---
 
 ¡Feliz programación y felices fiestas! 🎅🎁🎄
-
-
