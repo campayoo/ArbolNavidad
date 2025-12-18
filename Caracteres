@@ -1,0 +1,16 @@
+public class Caracteres {
+
+    public static final String TRONCO = "█";
+
+    public static final String ESTRELLA = "✮";
+
+    public static final String RAMAIZQUIERDA = "◢";
+
+    public static final String RAMADERECHA = "◣";
+
+    public static final String RAMA = "■";
+
+    public static final String BOLAS = "●";
+
+    public static final String SUELO = "'";
+}
