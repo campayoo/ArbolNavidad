@@ -4,7 +4,7 @@ Este proyecto consiste en un programa en **Java** que dibuja un **árbol de Navi
 
 <div align="center">
   <img 
-    src="https://github.com/user-attachments/assets/3b7bf124-eb83-4db2-b9cc-cf57d90e15ce"
+    src="https://github.com/user-attachments/assets/737c38ea-c264-4cb3-99ea-05484bf5c1e2"
     width="500"
     alt="Árbol de Navidad en consola Java"
   />
